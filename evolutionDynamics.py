@@ -25,8 +25,11 @@ def evolutionwoSB(graph, maxIter, beta, lmbd):
     nodes, edges = graph
     N = nodes.size
     k = np.sum(np.abs(edges)) * 2 // N
-    taus = [0, 0.3, 0.6, 0.9]
+    taus = [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]
+    # taus = [0, 0.3, 0.6, 0.9]
     f, (ax1, ax2) = plt.subplots(1, 2, sharey=False, figsize=(12,4))
+    output_node = []
+    output_edge = []
     for tau in taus:
         node = nodes.copy()
         edge = edges.copy()
@@ -133,28 +136,34 @@ def evolutionwoSB(graph, maxIter, beta, lmbd):
             fraction_edges.append(f_edge)
 
             # print(f)
-        ax1.plot(np.arange(0,maxIter),fraction_nodes, label='tau = %s'%tau)
-        ax2.plot(np.arange(0,maxIter),fraction_edges, label='tau = %s'%tau)
-    ax1.set_xlim(0, maxIter)
-    ax1.set_ylim(0, 1.1)
-    ax2.set_xlim(0, maxIter)
-    ax2.set_ylim(0, 1.1)
-    ax1.legend()
-    ax2.legend()
-    ax1.set_title("Evolution of cooperators in the random network")
-    ax1.set_ylabel("Fraction of cooperators")
-    ax1.set_xlabel("Iteration")
-    ax2.set_title("Evolution of positive relations in the random network")
-    ax2.set_ylabel("Fraction of positive relations")
-    ax2.set_xlabel("Iteration")
-    plt.show()
+        # ax1.plot(np.arange(0,maxIter),fraction_nodes, label='tau = %s'%tau)
+        # ax2.plot(np.arange(0,maxIter),fraction_edges, label='tau = %s'%tau)
+        output_node.append(fraction_nodes[-1])
+        output_edge.append(fraction_edges[-1])
+    # ax1.set_xlim(0, maxIter)
+    # ax1.set_ylim(0, 1.1)
+    # ax2.set_xlim(0, maxIter)
+    # ax2.set_ylim(0, 1.1)
+    # ax1.legend()
+    # ax2.legend()
+    # ax1.set_title("Evolution of cooperators in the random network")
+    # ax1.set_ylabel("Fraction of cooperators")
+    # ax1.set_xlabel("Iteration")
+    # ax2.set_title("Evolution of positive relations in the random network")
+    # ax2.set_ylabel("Fraction of positive relations")
+    # ax2.set_xlabel("Iteration")
+    # plt.show()
+    return [output_node,output_edge]
 
 def evolutionwSB_behavior(graph, maxIter, beta, lmbd):
     nodes, edges = graph
     N = nodes.size
     k = np.sum(np.abs(edges)) * 2 // N
-    taus = [0, 0.3, 0.6, 0.9]
+    taus = [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]
+    # taus = [0, 0.3, 0.6, 0.9]
     f, (ax1, ax2) = plt.subplots(1, 2, sharey=False, figsize=(12,4))
+    output_node = []
+    output_edge = []
     for tau in taus:
         node = nodes.copy()
         edge = edges.copy()
@@ -249,29 +258,35 @@ def evolutionwSB_behavior(graph, maxIter, beta, lmbd):
             fraction_nodes.append(f_node)
             fraction_edges.append(f_edge)
 
-            # print(f)
-        ax1.plot(np.arange(0,maxIter),fraction_nodes, label='tau = %s'%tau)
-        ax2.plot(np.arange(0,maxIter),fraction_edges, label='tau = %s'%tau)
-    ax1.set_xlim(0, maxIter)
-    ax1.set_ylim(0, 1.1)
-    ax2.set_xlim(0, maxIter)
-    ax2.set_ylim(0, 1.1)
-    ax1.legend()
-    ax2.legend()
-    ax1.set_title("Evolution of cooperators in the random network")
-    ax1.set_ylabel("Fraction of cooperators")
-    ax1.set_xlabel("Iteration")
-    ax2.set_title("Evolution of positive relations in the random network")
-    ax2.set_ylabel("Fraction of positive relations")
-    ax2.set_xlabel("Iteration")
-    plt.show()
+
+        # ax1.plot(np.arange(0,maxIter),fraction_nodes, label='tau = %s'%tau)
+        # ax2.plot(np.arange(0,maxIter),fraction_edges, label='tau = %s'%tau)
+        output_node.append(fraction_nodes[-1])
+        output_edge.append(fraction_edges[-1])
+    # ax1.set_xlim(0, maxIter)
+    # ax1.set_ylim(0, 1.1)
+    # ax2.set_xlim(0, maxIter)
+    # ax2.set_ylim(0, 1.1)
+    # ax1.legend()
+    # ax2.legend()
+    # ax1.set_title("Evolution of cooperators in the random network")
+    # ax1.set_ylabel("Fraction of cooperators")
+    # ax1.set_xlabel("Iteration")
+    # ax2.set_title("Evolution of positive relations in the random network")
+    # ax2.set_ylabel("Fraction of positive relations")
+    # ax2.set_xlabel("Iteration")
+    # plt.show()
+    return [output_node,output_edge]
 
 def evolutionwSB_pure(graph, maxIter, beta, lmbd):
     nodes, edges = graph
     N = nodes.size
     k = np.sum(np.abs(edges))*2//N
-    taus = [0, 0.3, 0.6, 0.9]
+    taus = [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]
+    # taus = [0, 0.3, 0.6, 0.9]
     f, (ax1, ax2) = plt.subplots(1, 2, sharey=False, figsize=(12,4))
+    output_node = []
+    output_edge = []
     for tau in taus:
         node = nodes.copy()
         edge = edges.copy()
@@ -358,18 +373,21 @@ def evolutionwSB_pure(graph, maxIter, beta, lmbd):
             fraction_edges.append(f_edge)
 
             # print(f)
-        ax1.plot(np.arange(0,maxIter),fraction_nodes, label='tau = %s'%tau)
-        ax2.plot(np.arange(0,maxIter),fraction_edges, label='tau = %s'%tau)
-    ax1.set_xlim(0, maxIter)
-    ax1.set_ylim(0, 1.1)
-    ax2.set_xlim(0, maxIter)
-    ax2.set_ylim(0, 1.1)
-    ax1.legend()
-    ax2.legend()
-    ax1.set_title("Evolution of cooperators in the random network")
-    ax1.set_ylabel("Fraction of cooperators")
-    ax1.set_xlabel("Iteration")
-    ax2.set_title("Evolution of positive relations in the random network")
-    ax2.set_ylabel("Fraction of positive relations")
-    ax2.set_xlabel("Iteration")
-    plt.show()
+        # ax1.plot(np.arange(0,maxIter),fraction_nodes, label='tau = %s'%tau)
+        # ax2.plot(np.arange(0,maxIter),fraction_edges, label='tau = %s'%tau)
+        output_node.append(fraction_nodes[-1])
+        output_edge.append(fraction_edges[-1])
+    # ax1.set_xlim(0, maxIter)
+    # ax1.set_ylim(0, 1.1)
+    # ax2.set_xlim(0, maxIter)
+    # ax2.set_ylim(0, 1.1)
+    # ax1.legend()
+    # ax2.legend()
+    # ax1.set_title("Evolution of cooperators in the random network")
+    # ax1.set_ylabel("Fraction of cooperators")
+    # ax1.set_xlabel("Iteration")
+    # ax2.set_title("Evolution of positive relations in the random network")
+    # ax2.set_ylabel("Fraction of positive relations")
+    # ax2.set_xlabel("Iteration")
+    # plt.show()
+    return [output_node, output_edge]
